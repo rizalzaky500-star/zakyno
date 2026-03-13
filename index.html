@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playlist zakinosaurus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #121212;
+        }
+        .spotify-container {
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .playlist-title {
+            color: #9b830c;
+            text-align: center;
+            margin: 0;
+            font-size: 24px;
+        }
+        iframe {
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="spotify-container">
+        <h1 class="playlist-title">playlist zakinosaurus</h1>
+        <iframe 
+            src="https://open.spotify.com/embed/playlist/3J73dUfApExwNkzQRn1Fww?si=vByaVeg7QeWOJp7JKpQW6A&pi=kDp1jhhtSOSYI"
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+        <iframe 
+            src="https://open.spotify.com/embed/playlist/2S8wUd6t1sycJGlyAf8VTK?si=vFhXaVOoR_KCQ2MtyEQlGw"
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+        </iframe>
+
+        <button onclick="window.location.href='spotify_aurora.html'">another version</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playlist zakinosaurus - Aurora Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background-color: #000000;
+            overflow-x: hidden;
+        }
+        
+        /* Aurora Background Layers */
+        .aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(to bottom, #020024 0%, #090979 35%, #00d4ff 100%);
+            overflow: hidden;
+        }
+        
+        /* Aurora Waves */
+        .aurora-wave {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            opacity: 0.6;
+            mix-blend-mode: screen;
+            animation: aurora 20s infinite linear;
+        }
+        
+        .aurora-wave:nth-child(1) {
+            background: radial-gradient(ellipse at center, 
+                rgba(0, 255, 127, 0.4) 0%, 
+                rgba(96, 239, 255, 0.2) 30%, 
+                transparent 70%);
+            animation-duration: 25s;
+            animation-delay: 0s;
+        }
+        
+        .aurora-wave:nth-child(2) {
+            background: radial-gradient(ellipse at center, 
+                rgba(138, 43, 226, 0.4) 0%, 
+                rgba(0, 191, 255, 0.2) 30%, 
+                transparent 70%);
+            animation-duration: 30s;
+            animation-delay: -5s;
+            animation-direction: reverse;
+        }
+        
+        .aurora-wave:nth-child(3) {
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 0, 255, 0.3) 0%, 
+                rgba(0, 255, 255, 0.2) 30%, 
+                transparent 70%);
+            animation-duration: 35s;
+            animation-delay: -10s;
+        }
+        
+        /* Stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 160px 120px, #ddd, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 4s infinite;
+        }
+        
+        @keyframes aurora {
+            0% {
+                transform: rotate(0deg) translateY(0);
+            }
+            50% {
+                transform: rotate(180deg) translateY(-20%);
+            }
+            100% {
+                transform: rotate(360deg) translateY(0);
+            }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .spotify-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .playlist-title {
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            font-size: 28px;
+            text-shadow: 0 0 20px rgba(124, 255, 103, 0.8), 0 0 40px rgba(124, 255, 103, 0.4);
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        iframe {
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="aurora">
+        <div class="stars"></div>
+        <div class="aurora-wave"></div>
+        <div class="aurora-wave"></div>
+        <div class="aurora-wave"></div>
+    </div>
+    
+    <div class="content">
+        <div class="spotify-container">
+            <h1 class="playlist-title">PLAYLIST ZAKINOSAURUS</h1>
+            <iframe 
+                src="https://open.spotify.com/embed/playlist/3J73dUfApExwNkzQRn1Fww?si=vByaVeg7QeWOJp7JKpQW6A&pi=kDp1jhhtSOSYI"
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+            <iframe 
+                src="https://open.spotify.com/embed/playlist/2S8wUd6t1sycJGlyAf8VTK?si=vFhXaVOoR_KCQ2MtyEQlGw"
+                width="100%" 
+                height="152" 
+                frameBorder="0" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
+

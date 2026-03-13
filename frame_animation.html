@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Bingkai - Frame Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e94560;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2rem;
+        }
+
+        .animation-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Frame Animation Menggunakan CSS */
+        .frame-box {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .frame {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: frameSequence 2s infinite;
+        }
+
+        .frame:nth-child(1) { animation-delay: 0s; }
+        .frame:nth-child(2) { animation-delay: 0.25s; }
+        .frame:nth-child(3) { animation-delay: 0.5s; }
+        .frame:nth-child(4) { animation-delay: 0.75s; }
+        .frame:nth-child(5) { animation-delay: 1s; }
+        .frame:nth-child(6) { animation-delay: 1.25s; }
+        .frame:nth-child(7) { animation-delay: 1.5s; }
+        .frame:nth-child(8) { animation-delay: 1.75s; }
+
+        @keyframes frameSequence {
+            0%, 100% { opacity: 0; }
+            12.5% { opacity: 1; }
+        }
+
+        .character {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        /* Frame 1 - Bola Merah */
+        .frame:nth-child(1) .character {
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+            transform: translateX(-100px) translateY(0);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Frame 2 */
+        .frame:nth-child(2) .character {
+            background: radial-gradient(circle at 30% 30%, #ffd93d, #f39c12);
+            transform: translateX(-60px) translateY(-20px);
+            box-shadow: 0 10px 30px rgba(255, 217, 61, 0.6);
+        }
+
+        /* Frame 3 */
+        .frame:nth-child(3) .character {
+            background: radial-gradient(circle at 30% 30%, #6bcb77, #27ae60);
+            transform: translateX(-30px) translateY(-40px);
+            box-shadow: 0 10px 30px rgba(107, 203, 119, 0.6);
+        }
+
+        /* Frame 4 */
+        .frame:nth-child(4) .character {
+            background: radial-gradient(circle at 30% 30%, #4d96ff, #2980b9);
+            transform: translateX(0) translateY(-50px);
+            box-shadow: 0 10px 30px rgba(77, 150, 255, 0.6);
+        }
+
+        /* Frame 5 */
+        .frame:nth-child(5) .character {
+            background: radial-gradient(circle at 30% 30%, #9b59b6, #8e44ad);
+            transform: translateX(30px) translateY(-40px);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.6);
+        }
+
+        /* Frame 6 */
+        .frame:nth-child(6) .character {
+            background: radial-gradient(circle at 30% 30%, #e17055, #d35400);
+            transform: translateX(60px) translateY(-20px);
+            box-shadow: 0 10px 30px rgba(225, 112, 85, 0.6);
+        }
+
+        /* Frame 7 */
+        .frame:nth-child(7) .character {
+            background: radial-gradient(circle at 30% 30%, #00cec9, #00b894);
+            transform: translateX(80px) translateY(0);
+            box-shadow: 0 10px 30px rgba(0, 206, 201, 0.6);
+        }
+
+        /* Frame 8 - Kembali ke awal */
+        .frame:nth-child(8) .character {
+            background: radial-gradient(circle at 30% 30%, #ff6b6b, #c0392b);
+            transform: translateX(100px) translateY(0);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-play {
+            background: #e94560;
+            color: white;
+        }
+
+        .btn-play:hover {
+            background: #ff6b8a;
+            transform: scale(1.05);
+        }
+
+        .btn-stop {
+            background: #535c68;
+            color: white;
+        }
+
+        .btn-stop:hover {
+            background: #7f8fa6;
+            transform: scale(1.05);
+        }
+
+        .info {
+            margin-top: 20px;
+            color: #a0a0a0;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎬 Animasi Bingkai (Frame Animation)</h1>
+    
+    <div class="animation-container">
+        <div class="frame-box" id="animationBox">
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+            <div class="frame">
+                <div class="character"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn-play" onclick="playAnimation()">▶ Putar</button>
+        <button class="btn-stop" onclick="stopAnimation()">⏹ Berhenti</button>
+    </div>
+
+    <div class="info">
+        <p>Animasi ini menggunakan 8 bingkai (frame) yang dimainkan secara berurutan</p>
+    </div>
+
+    <script>
+        const frames = document.querySelectorAll('.frame');
+        let isPlaying = true;
+
+        function playAnimation() {
+            frames.forEach(frame => {
+                frame.style.animationPlayState = 'running';
+            });
+            isPlaying = true;
+        }
+
+        function stopAnimation() {
+            frames.forEach(frame => {
+                frame.style.animationPlayState = 'paused';
+            });
+            isPlaying = false;
+        }
+
+        // Klik pada animasi untuk toggle play/pause
+        document.getElementById('animationBox').addEventListener('click', function() {
+            if (isPlaying) {
+                stopAnimation();
+            } else {
+                playAnimation();
+            }
+        });
+    </script>
+</body>
+</html>
